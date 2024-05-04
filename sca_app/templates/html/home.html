@@ -1,0 +1,175 @@
+{%extends 'html/main.html'%}
+{%block content%}
+{%load static%}
+{%include 'common/message.html'%}
+
+
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img style="height: 800px;" src="{%static 'images/1.avif'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Quality Service</h3>
+        <p>Our expert technicians ensure that your bike or car receives the highest quality service.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img style="height: 800px;" src="{%static 'images/21.jpg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Wide Range of Services</h3>
+        <p>Our service station offers a wide range of services, from basic maintenance to full overhauls, ensuring your
+          vehicle is in top condition.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img style="height: 800px;" src="{%static 'images/31.jpg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Expert Technicians</h3>
+        <p>Our skilled technicians ensure top-notch service and reliable repairs.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<section id="feature">
+  <div class="dc" style="gap: 10vw; flex-wrap: wrap-reverse !important;">
+    <div style="max-width: 700px;">
+      <p style="font-weight: 600;">Features</p>
+      <h1 style="font-size: 4rem; font-weight: 900;">Book Vehicle Services Online with Ease</h1>
+      <p class="mt-3" style="font-size: larger;">Our online booking platform makes it simple and hassle-free to schedule
+        vehicle services. From routine maintenance to repairs, we've got you covered.</p>
+      <div style="display: flex; justify-content: space-between;">
+        <div style="max-width: 300px">
+          <img class="my-4" id="cube" src="{%static 'images/cube.png'%}" alt="">
+          <h4>Quality Services</h4>
+          <p>Choose from a wide range of services for your bike or car.</p>
+        </div>
+        <div style="max-width: 300px;">
+          <img class="my-4" id="cube" src="{%static 'images/cube.png'%}" alt="">
+          <h4>Expert Technicians</h4>
+          <p>Our skilled technicians ensure top-notch service and reliable repairs.</p>
+        </div>
+      </div>
+
+      <button class="btna mt-4" onclick="window.location.href='#about';">Learn More</button>
+      <button class="btnb mt-4" style="border: none !important;"
+        onclick="window.location.href='{%url 'register'%}';">Sign Up ></button>
+
+    </div>
+    <div id="featureimg"></div>
+  </div>
+
+</section>
+
+
+<section id="car">
+  <div class="dc" style="justify-content: space-evenly !important; padding: 0;">
+    <div id="carimg"></div>
+    <div style="width: 700px;">
+      <h1 style="font-size: 3rem; font-weight: 800;">Trust us to elevate your car servicing experience.
+      </h1>
+      <p>Welcome to Service Center Automation, where car servicing meets excellence. Here's what makes us your ultimate
+        choice</p>
+      <h3 style="font-weight: 700; margin-top: 50px;">Convenience Redefined</h3>
+      <p style="width: 85%;">Your time is valuable. That's why we offer flexible scheduling options and convenient
+        service packages designed to fit seamlessly into your busy life, making car maintenance hassle-free and
+        stress-free.</p>
+      <h3 style="font-weight: 700; margin-top:25px;">Advanced Technology Integration</h3>
+      <p style="width: 85%;">We leverage cutting-edge diagnostic tools and equipment to provide precise, efficient
+        servicing tailored to your vehicle's needs, ensuring optimal performance and reliability.</p>
+      <h3 style="font-weight: 700; margin-top: 25px;">Transparent Communication</h3>
+      <p style="width: 85%;">Our team believes in clear, honest communication. We'll walk you through every step of the
+        servicing process, explaining findings and recommendations in detail, so you're always in the know.</p>
+        <div class="dc mt-4">
+          <button class="btna" onclick="window.location.href='{%url 'bookcompanies' 'Car'%}';">Car
+            Services</button>
+      <button class="btnb" style="border: none !important;"
+        onclick="window.location.href='#about';">Learn More ></button>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="bike">
+  <div class="dc" style="padding: 0; justify-content: space-evenly !important;">
+
+    <div style="width: 700px;">
+      <h1 style="font-size: 3rem; font-weight: 800;">Experience Quality Vehicle Services for Bikes
+      </h1>
+      <p>At our vehicle service station, we offer top-notch bike servicing to keep your bike running
+        smoothly. With our team of experienced technicians and state-of-the-art equipment, we provide comprehensive
+        services to address all your bike needs..</p>
+      <h3 style="font-weight: 700; margin-top: 50px;">Comprehensive Maintenance</h3>
+      <p style="width: 70%;">From thorough inspections to meticulous adjustments, we ensure every component of your bike
+        is in prime condition.</p>
+      <h3 style="font-weight: 700; margin-top: 25px;">Safety Assurance</h3>
+      <p style="width: 70%;"> Your safety is our priority. We meticulously inspect critical parts, such as brakes and
+        tires, to ensure they meet the highest standards.</p>
+      <h3 style="font-weight: 700; margin-top: 25px;">Performance Optimization</h3>
+      <p style="width: 70%;"> Our expert technicians fine-tune gears, brakes, and tires to perfection, elevating your
+        biking experience with smoother rides and improved handling.</p>
+        <div class="dc mt-4">
+          <button class="btna" onclick="window.location.href='{%url 'bookcompanies' 'Bike'%}';">Bike
+            Services</button>
+      <button class="btnb" style="border: none !important;"
+        onclick="window.location.href='#about';">Learn More ></button>
+      
+      </div>
+    </div>
+    <div id="bikeimg"></div>
+  </div>
+
+</section>
+
+
+<section id="cta">
+  <h1 class="text-center mt-5" style="font-size: 3.5rem; font-weight: 800; color: white;">Book Your Service Now!</h1>
+  <p class="text-center" style="font-size: large; color: white;">Experience top-quality service for your vehicle.</p>
+  <div style="padding: 0 42%;">
+    <button class="btna" onclick="window.location.href='{%url 'companies'%}';">Book Now </button>
+    <button class="btna" onclick="window.location.href='#about';">Learn More</button>
+  </div>
+</section>
+
+<h2 class="text-center" style="font-size: 3rem; font-weight: 700   ;">Satisfied Customers</h2>
+<h4 class="text-center mb-4" style="font-size: 1rem; font-weight: 500   ;">Hear what our customers have to say about us
+</h4>
+<div class="dc mb-5">
+  {%for f in feedback|slice:":8" %}
+  <div class="cards" style="width: 250px; padding: 1vw;">
+
+    <img class="d-block mx-auto" src="{{f.booking.user.pic.url}}" style="border-radius: 50%; height: 70px; width: 70px;"
+      alt="">
+
+
+    <h3 class="mt-3 text-center">{{f.booking.user.name}}</h3>
+    <h4 class="mt-3">Company: {{f.booking.company.name}}</h4>
+    <h4 class="mt-3">Vehicle: {{f.booking.company.type_of_vehicle}}</h4>
+    <h4 class="mt-3">Ratings: {{f.rating}}</h4>
+    <h4 class="mt-3">Remarks: {{f.remark}}</h4>
+  </div>
+  {%endfor%}
+
+</div>
+
+
+{%endblock%}
