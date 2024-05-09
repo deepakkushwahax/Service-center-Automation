@@ -170,17 +170,18 @@ def forgetpassword(request):
         password = request.POST['password']
         name = request.POST['name']
         email = request.POST['email']
-        x = User.objects.get(phone=phone)
-        obj = User()
-        obj.phone=phone
-        obj.password=password
-        obj.name=name
-        obj.email=email
-        obj.pic=x.pic
-        obj.address=x.address
-        obj.save()
-        messages.success(request, 'Password Changed Successfully')
-        return redirect('login')
+        try:
+            x = User.objects.get(phone=phone, name=name, email=email)
+            x.phone=phone
+            x.password=password
+            x.name=name
+            x.email=email
+            x.save()
+            messages.success(request, 'Password Changed Successfully')
+            return redirect('login')
+        except:
+            messages.error(request, 'Details Not Found')
+            return render(request, 'user/forgetpassword.html')
     else:
         return render(request, 'user/forgetpassword.html')
 

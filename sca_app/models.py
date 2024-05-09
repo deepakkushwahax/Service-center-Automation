@@ -12,7 +12,7 @@ class User(models.Model):
 
 class Company(models.Model):
     CHOICES = (
-        ('Car', 'Car'),
+        ('Car', 'Car'), 
         ('Bike', 'Bike'),
     )
     name = models.CharField(max_length=50)
