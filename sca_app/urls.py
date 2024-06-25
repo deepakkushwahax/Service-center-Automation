@@ -15,4 +15,8 @@ urlpatterns = [
     path('adminlog/', adminlog, name='adminlog'),
     path('adminhome/', adminhome, name='adminhome'),
     path('forgetpassword/', forgetpassword, name="forgetpassword"),
+    path('compregister/', compregister , name = 'compregister'),
+    path('pcom/', pcom, name='pcom'),
+    path('approve/<int:id>/', approve, name="approve"),
+    path('reject/<int:id>/', reject, name="reject"),
 ]

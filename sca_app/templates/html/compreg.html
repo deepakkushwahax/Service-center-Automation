@@ -12,7 +12,7 @@
                     {{ message }}
                 </div>
             {% endfor %}
-        <h2 class="text-center mb-4">Register</h2>
+        <h2 class="text-center mb-4">Company Register</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-floating mb-3">
@@ -28,17 +28,36 @@
                 <label for="phone">Phone</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" name="password" placeholder="" required>
-                <label for="password">Password</label>
-            </div>
-            <div class="form-floating mb-3">
                 <textarea style="height: 100px;" class="form-control" id="address" name="address" rows="3"
                     placeholder="" required></textarea>
-                <label for="address">Address</label>
+                <label for="address">Location</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="file" class="form-control" id="pic" name="pic">
-                <label for="pic">Profile Picture</label>
+                <label for="pic">Company Picture</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="file" class="form-control" id="idcard" name="idcard">
+                <label for="idcard">Upload ID</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="type" name="type"
+                    placeholder="" required>
+                <option disabled value="">--select type--</option>
+                <option value="Bike">Bike</option>
+                <option value="Car">Car</option>
+                </select>
+                <label for="desc">Type Of Vehicle Company</label>
+            </div>
+
+
+
+            <div class="form-floating mb-3">
+                <textarea style="height: 100px;" class="form-control" id="desc" name="desc" rows="3"
+                    placeholder="" required></textarea>
+                <label for="desc">Description</label>
             </div>
             <button type="submit" class="btna mt-4 d-block mx-auto w-75">Register</button>
         </form>

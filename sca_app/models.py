@@ -15,12 +15,15 @@ class Company(models.Model):
         ('Car', 'Car'), 
         ('Bike', 'Bike'),
     )
+    status = models.BooleanField(default=False)
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
     pic = models.FileField(max_length=100, upload_to='Companies/')
     rating = models.CharField(max_length=10, default="★★★★★")
     description = models.TextField(null=True)
+    idcard = models.FileField(max_length=100, upload_to="IDCARDS/", default="")
+    location = models.TextField(default="BBD University, Lucknow")
     type_of_vehicle = models.CharField(max_length=50, choices=CHOICES)
 
 
@@ -32,7 +35,7 @@ class Booking(models.Model):
     vehicle_img = models.FileField(max_length=100, upload_to='Vehicles/', default="")
     vehicle_company = models.CharField(max_length=100, default="")
     vehicle_name = models.CharField(max_length=100, default="")
-    vehicle_number = models.CharField(max_length=100, default="")
+    vehicle_number = models.CharField(max_length=100, default="", unique=True)
     created = models.DateTimeField(auto_now=True)
 
     class Meta:

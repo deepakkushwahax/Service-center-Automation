@@ -25,6 +25,14 @@ def register(request):
         email = request.POST['email']
         pic = request.FILES.get('pic')
         address = request.POST['address']
+        
+        x = User.objects.filter(phone=phone)
+        y = User.objects.filter(email=email)
+        
+        if x or y:
+            messages.error(request, 'Same Number or Email Exist!!!')
+            return render(request, 'user/register.html')
+            
         obj = User()
         obj.phone=phone
         obj.password=password
@@ -99,7 +107,7 @@ def companies(request):
     user = None
     if key:
         user = User.objects.get(phone=key)
-    company = Company.objects.all()
+    company = Company.objects.filter(status=True)
     return render(request, 'html/companies.html', {'companies':company, 'user':user})
 
 
@@ -108,7 +116,7 @@ def bookcompanies(request,type_of_vehicle ):
     user = None
     if key:
         user = User.objects.get(phone=key)
-    company = Company.objects.filter(type_of_vehicle=type_of_vehicle)
+    company = Company.objects.filter(type_of_vehicle=type_of_vehicle, status=True)
     return render(request, 'html/bookcompanies.html', {'company':company, 'user':user})
 
 
@@ -129,6 +137,9 @@ def feedback(request, id):
         user = User.objects.get(phone=key)
         return render(request, 'user/feedback.html', {'user':user})
 
+def pcom(request):
+    company = Company.objects.filter(status=False)
+    return render(request, 'html/pendingcompanies.html', {'companies':company})
 
 
 def feedbacks(request):
@@ -136,6 +147,19 @@ def feedbacks(request):
     return render(request, 'html/feedbacks.html', {'feedback':obj})
 
 
+def approve(request, id):
+    obj = Company.objects.get(id=id)
+    obj.status = True
+    obj.save()
+    messages.success(request, 'Approved')
+    return redirect('adminhome')
+
+
+def reject(request, id):
+    obj = Company.objects.get(id=id)
+    obj.delete()
+    messages.success(request, 'Rejected')
+    return redirect('adminhome')
 
 
 
@@ -184,6 +208,43 @@ def forgetpassword(request):
             return render(request, 'user/forgetpassword.html')
     else:
         return render(request, 'user/forgetpassword.html')
+
+
+
+def compregister(request):
+    if request.method == 'POST':
+        phone = request.POST['phone']
+        name = request.POST['name']
+        email = request.POST['email']
+        pic = request.FILES.get('pic')
+        idcard = request.FILES.get('idcard')
+        address = request.POST['address']
+        typeof = request.POST['type']
+        desc = request.POST['desc']
+        
+        x = Company.objects.filter(phone=phone)
+        y = Company.objects.filter(email=email)
+        
+        if x or y:
+            messages.error(request, 'Same Number or Email Exist!!!')
+            return render(request, 'html/compreg.html')
+            
+            
+        obj = Company()
+        obj.phone=phone
+        obj.name=name
+        obj.email=email
+        obj.pic=pic
+        obj.idcard=idcard
+        obj.type_of_vehicle=typeof
+        obj.description=desc
+        obj.location=address
+        obj.save()
+        messages.success(request, 'Company Registered Successfully')
+        return redirect('home')
+    else:
+        return render(request, 'html/compreg.html')
+
 
 
 def logout(request):

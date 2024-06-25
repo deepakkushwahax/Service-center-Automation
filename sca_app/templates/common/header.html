@@ -33,12 +33,15 @@
           {%endif%}
           {% if request.session.session_key %}
           {%if user.ad%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'pcom'%}">Pending Companies</a>
+          </li>
           {%else%}
           <li class="nav-item">
             <a class="nav-link" href="{%url 'bookings'%}">Bookings</a>
           </li>
           {%endif%}
-        </ul>     
+        </ul>
       </div>
       {%if user.pic%}
       <img style="height: 40px; width: 40px; border-radius: 50%; margin: 0 10px;" src="{{user.pic.url}}" alt="">
@@ -58,6 +61,7 @@
       {%else%}
     </ul>     
   </div>  
+  <button style="font-weight: 700; border: none;" class="btnb me-3" onclick="window.location.href='{%url 'compregister'%}';"><i class="far fa-user me-2"></i>Company Register</button>
       <button style="font-weight: 700; border: none;" class="btnb me-3" onclick="window.location.href='{%url 'login'%}';"><i class="far fa-user me-2"></i>Login</button>
       {%endif%}
     </div>

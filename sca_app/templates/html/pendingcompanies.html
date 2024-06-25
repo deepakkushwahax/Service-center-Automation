@@ -1,7 +1,7 @@
 {%extends 'html/main.html'%}
 {%block content%}
 
-<h1 class="text-center mt-5" style="font-size: 3rem; font-weight: 800;">Book a Service for Your Vehicle Today</h1>
+<h1 class="text-center mt-5" style="font-size: 3rem; font-weight: 800;">Pending Companies</h1>
 
 <div class="dc" style="padding: 0 2vw;">
     {%for b in companies%}
@@ -14,12 +14,14 @@
         <h4>Phone: {{b.phone}}</h4>
         <h4>Email: {{b.email}}</h4>
         <h4>Location: {{b.location}}</h4>
-        <h4>Rating: <span style="color: rgb(255, 0, 43);">{{b.rating}}</span></h4>
-        <h4>Type: {{b.type_of_vehicle}} Service</h4>
+         <h4>Type: {{b.type_of_vehicle}} Service</h4>
         <p class="mb-3 text-muted">About: {{b.description}}</p>
-        <button class="btna w-100 mt-3" onclick="window.location.href='{%url 'booking' b.phone%}';">Book
-            Service</button>
-
+        <p>{%if b.idcard%}<a href="{{b.idcard.url}}">ID Card</a>{%else%}No ID{%endif%}</p>
+    <div class="d-flex gap-3">
+        <button class="btna w-75 mt-3 " onclick="window.location.href='{%url 'approve' b.id%}';">Approve</button>
+        <button class="btna w-75 mt-3 bg-danger     " onclick="window.location.href='{%url 'reject' b.id%}';">Reject</button>
+    
+    </div>    
     </div>
 
 
