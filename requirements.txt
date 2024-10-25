@@ -1,0 +1,4 @@
+Django==5.1
+hyperlink==21.0.0
+pillow==10.4.0
+sqlparse==0.4.2
